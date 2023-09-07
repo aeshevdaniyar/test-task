@@ -1,5 +1,5 @@
 import { baseApi } from "@shared/api/rtk/baseApi";
-import { PokemonRequest } from "../types/pokemon";
+import { PokemonDetail, PokemonRequest } from "../types/pokemon";
 import { pokemonActions } from "../pokemonSlice/pokemonSlice";
 
 const pokemonApi = baseApi.injectEndpoints({
@@ -25,7 +25,7 @@ const pokemonApi = baseApi.injectEndpoints({
         dispatch(pokemonActions.setPrevUrl(data.previous));
       },
     }),
-    getPokemonByName: build.query<any, string>({
+    getPokemonByName: build.query<PokemonDetail, string>({
       query: (pokemonName) => ({
         url: `/pokemon/${pokemonName}`,
       }),

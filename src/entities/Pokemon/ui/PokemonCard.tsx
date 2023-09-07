@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Pokemon } from "../model/types/pokemon";
 import { Card, CardBody, Heading, LinkBox, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { RouteNames } from "@app/providers/RouterProvider/config/routes";
-export const PokemonCard: FC<Pokemon> = ({ name, id }) => {
+export const PokemonCard: FC<Pokemon> = memo(({ name, id }) => {
   return (
     <LinkBox as={Link} to={`${RouteNames.POKEMON_DETAIL_PAGE}/${name}`}>
       <Card
@@ -29,4 +29,4 @@ export const PokemonCard: FC<Pokemon> = ({ name, id }) => {
       </Card>
     </LinkBox>
   );
-};
+});
