@@ -18,7 +18,7 @@ const pokemonApi = baseApi.injectEndpoints({
         });
         return newResponse;
       },
-      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+      async onQueryStarted(_arg, { queryFulfilled, dispatch }) {
         const { data } = await queryFulfilled;
 
         dispatch(pokemonActions.setNextUrl(data.next));
